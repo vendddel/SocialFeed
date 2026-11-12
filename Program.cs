@@ -7,7 +7,7 @@
             Console.ForegroundColor = ConsoleColor.Red;
 
             TextPost textpost1 = new TextPost("hali a nevem herby", "Herby");
-            TextPost textpost2 = new TextPost("hali a nevem asds és hosszú szöveg bla bla bla bla bla bla bla bla bla bla bla bla", "Herby");
+            TextPost textpost2 = new TextPost("hali a nevem asds és hosszú szöveg bla bla bla bla bla bla bla bla bla bla bla bla", "dazis");
 
             textpost1.Like();
             textpost1.Like();
@@ -18,7 +18,7 @@
             Console.WriteLine(textpost2.GetDescription());
 
             Console.WriteLine("----------------------------------------------------------");
-            ImagePost imagepost1 = new ImagePost(3, "Herby");
+            ImagePost imagepost1 = new ImagePost(3, "zsomac");
             imagepost1.Like();
             imagepost1.Like();
             imagepost1.Like();
@@ -64,8 +64,29 @@
                 Console.WriteLine(comment.GetDescription());
             }
 
-            
+            Console.WriteLine("----------------------------------------------------------");
 
+
+            List<IReportable> ToReview = new List<IReportable>();
+            ModerationQueue moderationQueue = new ModerationQueue();
+
+            moderationQueue.ReportItem(textpost2);
+            moderationQueue.ReportItem(textpost2);
+            moderationQueue.ReportItem(textpost2);
+
+            moderationQueue.ReportItem(comment1);
+            moderationQueue.ReportItem(comment1);
+            moderationQueue.ReportItem(comment1);
+            moderationQueue.ReportItem(comment1);
+
+            moderationQueue.ReportItem(imagepost1);
+
+            foreach (IReportable item in moderationQueue.ToReview)
+            {
+                Console.WriteLine($"{item.GetDescription()} - Reports: {item.ReportCount()}");
+            }
+            Console.WriteLine("----------------------------------------------------------");
+            Console.WriteLine("vege");
         }
     }
 }
