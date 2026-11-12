@@ -11,7 +11,7 @@
 
             textpost1.Like();
             textpost1.Like();
-            textpost1.Like();
+            textpost1.Like(); 
 
             Console.WriteLine(textpost1.GetDescription());
             Console.WriteLine(textpost2.GetDescription());
