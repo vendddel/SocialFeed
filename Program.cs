@@ -50,8 +50,21 @@
             Console.WriteLine(pollpost1.GetDescription());
             Console.WriteLine($"Score: {pollpost1.Score()}");
 
+            Console.WriteLine("----------------------------------------------------------");
+
+            
 
 
+            Comment comment1 = textpost2.AddComment("Vendel", "asdasdasdassdasdasdasdasdas");
+            Comment comment2 = textpost2.AddComment("Herby", "blbalbalbalbalblablablabl");
+
+            Console.WriteLine(textpost2.GetDescription());
+            foreach (Comment comment in textpost2.Comments)
+            {
+                Console.WriteLine(comment.GetDescription());
+            }
+
+            
 
         }
     }
