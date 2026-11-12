@@ -4,10 +4,11 @@ using System.Text;
 
 namespace SocialFeed
 {
-    public abstract class Post
+    public abstract class Post : IReportable
     {
         private string _author;
         private int _likes;
+        private int _reports;
         public string Author
         {
             get { return _author; }
@@ -37,5 +38,14 @@ namespace SocialFeed
         }
 
         public abstract int Score();
+
+        public void Report()
+        {
+            _reports++;
+        }
+        public int ReportCount()
+        {
+            return _reports;
+        }
     }
 }
