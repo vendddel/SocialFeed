@@ -30,6 +30,27 @@
 
             ImagePost imagepost2 = new ImagePost(15, "Vendel");
             Console.WriteLine(imagepost2.GetDescription());
+            Console.WriteLine("----------------------------------------------------------");
+
+            
+
+            PollPost pollpost1 = new PollPost("Herby");
+            pollpost1.Like();
+            pollpost1.Like();
+
+            pollpost1.Vote();
+            pollpost1.Vote();
+            pollpost1.Vote();
+            pollpost1.Vote();
+
+            pollpost1.Close();
+            pollpost1.Like();
+            pollpost1.Vote();
+
+            Console.WriteLine(pollpost1.GetDescription());
+            Console.WriteLine($"Score: {pollpost1.Score()}");
+
+
 
 
         }
